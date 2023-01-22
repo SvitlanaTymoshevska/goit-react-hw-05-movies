@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useParams, useLocation, Link, Outlet } from "react-router-dom";
+import { useParams, useLocation, Outlet } from "react-router-dom";
 import { fetchMoiveByID } from "services/api-movies-service";
 import { BackLink } from "components/BackLink/BackLink";
 import { Movie } from "components/Movie/Movie";
-// import {Cast} from "components/Movie/Cast";
+import { Wrapper, Item, StyledLink } from "pages/MovieDetails/MovieDetails.styled"; 
 
 export const MovieDetails = () => {
     const { id } = useParams();
     const location = useLocation();
-    const backLinkHref = location.state?.from ?? "/home";
+    const backLinkHref = location.state?.from ?? "/";
 
     const [movie, setMovie] = useState(null);
 
@@ -23,14 +23,17 @@ export const MovieDetails = () => {
             <main>
                 <BackLink to={backLinkHref}>Go back</BackLink>
                 <Movie movie={movie} />
-                <ul>
-                    <li>
-                        <Link to="cast" id={id}>Cast</Link>
-                    </li>
-                    <li>
-                        <Link to="reviews">Reviews</Link>
-                    </li>
-                </ul>
+                <Wrapper>
+                    <h3>Additional information</h3>
+                    <ul>
+                        <Item>
+                            <StyledLink to="cast" id={id}>Cast</StyledLink>
+                        </Item>
+                        <Item>
+                            <StyledLink to="reviews">Reviews</StyledLink>
+                        </Item>
+                    </ul>
+                </Wrapper>
                 <Outlet />
             </main>
         )

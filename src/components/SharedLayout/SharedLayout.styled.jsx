@@ -12,14 +12,14 @@ export const Header = styled.header`
   justify-content: space-between;
   padding: 8px;
   box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
-
-  > nav {
-    display: flex;
-  }
+`;
+export const Navigation = styled.nav`
+  display: flex;
 `;
 
 export const StyledNavLink = styled(NavLink)`
   padding: 8px 16px;
+  margin-left: 12px;
   border-radius: 4px;
   text-decoration: none;
   color: black;

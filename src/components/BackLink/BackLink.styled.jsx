@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const StyledLink = styled(Link)`
   display: inline-block;
-  margin: 8px;
+  margin: 20px 0 0 20px;
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
