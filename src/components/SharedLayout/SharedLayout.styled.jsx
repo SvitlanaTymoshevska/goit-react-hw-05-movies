@@ -29,4 +29,9 @@ export const StyledNavLink = styled(NavLink)`
     color: white;
     background-color: green;
   }
+  
+  :hover:not(.active),
+  :focus-visible:not(.active) {
+    color: green;
+  }
 `;

@@ -20,16 +20,18 @@ export async function fetchMovies (query) {
     return results;
 }
 
-export async function fetchGenres() {
-    const URL = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
-    const response = await axios.get(URL);
-
-    return response.data.genres;
-}
-
 export async function fetchMoiveByID(id) {
     const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`;
     const response = await axios.get(URL);
 
     return response.data;
+}
+
+export async function fetchCast(id) {
+    
+    const URL = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`;
+    const response = await axios.get(URL);
+
+    return response.data.cast
+;
 }
