@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useParams, useLocation, Outlet } from "react-router-dom";
 import { fetchMoiveByID } from "services/api-movies-service";
 import { BackLink } from "components/BackLink/BackLink";
 import { Movie } from "components/Movie/Movie";
 import { Wrapper, Item, StyledLink } from "pages/MovieDetails/MovieDetails.styled"; 
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
     const { id } = useParams();
     const location = useLocation();
     const backLinkHref = location.state?.from ?? "/";
@@ -34,8 +34,12 @@ export const MovieDetails = () => {
                         </Item>
                     </ul>
                 </Wrapper>
-                <Outlet />
+                <Suspense fallback={null}>
+                    <Outlet />
+                </Suspense>
             </main>
         )
     );
 };
+
+export default MovieDetails;

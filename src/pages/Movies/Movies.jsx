@@ -5,7 +5,7 @@ import { SearchBox } from "components/SearchBox/SearchBox";
 import { fetchMoviesByName } from "services/api-movies-service";
 import { Container, List, Item, StyledLink } from "pages/Movies/Movies.styled"; 
 
-export const Movies = () => {
+ const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const movieName = searchParams.get("name") ?? "";
     const location = useLocation();
@@ -57,3 +57,5 @@ export const Movies = () => {
         </Container>
     );
 };
+
+export default Movies;

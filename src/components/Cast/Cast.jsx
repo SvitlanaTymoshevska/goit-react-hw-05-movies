@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchCast } from "services/api-movies-service";
 import { List, Item, Img, Plug, Accent } from "components/Cast/Cast.styled";
 
-export const Cast = () => {
+const Cast = () => {
     const { id } = useParams();
     const [cast, setCast] = useState(null);
 
@@ -34,3 +34,5 @@ export const Cast = () => {
         )
     );
 };
+
+export default Cast;
