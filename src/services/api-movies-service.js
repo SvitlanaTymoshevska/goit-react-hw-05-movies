@@ -15,7 +15,7 @@ export async function fetchMoviesByName (query) {
     const results = response.data.results;
 
     if (results.length === 0 && query) {
-      throw new Error("Search result not successful. Enter the correct movie name and repeat");
+      throw new Error("Search result not successful. Enter the correct movie name and repeat.");
     }
 
     return results;

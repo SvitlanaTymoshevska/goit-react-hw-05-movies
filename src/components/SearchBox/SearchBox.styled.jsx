@@ -6,7 +6,6 @@ export const Wrapper = styled.form`
     display: inline-flex;
     align-items: center;
     position: relative;
-    margin: 8px;
     text-transform: uppercase;
 `;
 

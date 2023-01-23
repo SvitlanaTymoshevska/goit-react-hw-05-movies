@@ -1,3 +1,4 @@
+import {PropTypes} from "prop-types";
 import { Container, Img, Plug } from "components/Movie/Movie.styled";
 
 const getYear = (release_date) => {
@@ -22,7 +23,7 @@ const getGenreNames = (genres) => {
 
 export const Movie = ({ movie }) => { 
     const { poster_path, genres, overview, title, release_date, vote_average } = movie;
-    
+
     const poster = poster_path ? (
         <Img
             src={`https://image.tmdb.org/t/p/w1280/${poster_path}`}
@@ -46,4 +47,13 @@ export const Movie = ({ movie }) => {
             </div>
         </Container>
     );
+};
+
+Movie.propTypes = {
+    poster_path: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.object),
+    overview: PropTypes.string,
+    title: PropTypes.string,
+    release_date: PropTypes.string,
+    vote_average: PropTypes.number,
 };

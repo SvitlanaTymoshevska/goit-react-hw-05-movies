@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { fetchCast } from "services/api-movies-service";
-import { List, Item, Img, Text } from "components/Cast/Cast.styled";
+import { List, Item, Img, Plug, Accent } from "components/Cast/Cast.styled";
 
 export const Cast = () => {
     const { id } = useParams();
@@ -19,12 +19,13 @@ export const Cast = () => {
                 {cast.map(({id, character, name, profile_path}) => { 
                     return (
                         <Item key={id}>
-                            <Img
+                            {profile_path ? (<Img
                                 src={`https://image.tmdb.org/t/p/w1280/${profile_path}`}
                                 alt={`Poster of ${name}`}
                                 loading="lazy"
-                            />
-                            <Text>{name}</Text>
+                            />) :  <Plug>Poster not found</Plug>}
+                            
+                            <Accent>{name}</Accent>
                             <p>Character: {character}</p>
                         </Item>
                     )

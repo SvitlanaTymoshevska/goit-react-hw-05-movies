@@ -3,11 +3,12 @@ import styled from "styled-components";
 export const List = styled.ul`
     display: flex;
     flex-wrap: wrap;
+    margin: 10px;
 `;
 
 export const Item = styled.li`
     margin: 10px;  
-    width: 160px;
+    width: 140px;
 `;
 
 export const Img = styled.img`
@@ -18,12 +19,13 @@ export const Img = styled.img`
 `;
 
 export const Plug = styled.div`
-    width: 140px;
-    height: 210px;
+    width: 120px;
+    height: 190px;
+    padding: 10px;
     border-radius: 5px;
     background-color: grey;
 `;
 
-export const Text = styled.p`
+export const Accent = styled.p`
    font-weight: bold;
 `;

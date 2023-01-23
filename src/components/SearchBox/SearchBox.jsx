@@ -1,14 +1,13 @@
 import { useState } from "react";
+import {PropTypes} from "prop-types";
 import { Wrapper, Input, SubmitButton, Icon } from "components/SearchBox/SearchBox.styled";
 
-export const SearchBox = ({ onSubmit }) => {
-    const [value, setValue] = useState("");
-
+export const SearchBox = ({searchParams, onSubmit }) => {
+    const [value, setValue] = useState(searchParams);
 
     const handleSudmit = (e) => {
         e.preventDefault();
         onSubmit(value.trim());
-        setValue("");
     };
 
     return (
@@ -23,4 +22,9 @@ export const SearchBox = ({ onSubmit }) => {
             </SubmitButton>
         </Wrapper>
   );
+};
+
+SearchBox.propTypes = {
+    searchParams: PropTypes.string,
+    onSubmit: PropTypes.func.isRequired,
 };

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { fetchReviews } from "services/api-movies-service";
+import { List, Accent, ErrorMessage } from "components/Reviews/Reviews.styled";
 
 export const Reviews = () => {
     const { id } = useParams();
-
     const [reviews, setReviews] = useState(null);
     const [error, setError] = useState(null);
 
@@ -14,22 +14,21 @@ export const Reviews = () => {
             .catch(error => setError(error.message))
     }, [id]);
 
-    console.log(error);
     return (
         <>
             {reviews && 
-                <ul>
+                <List>
                     {reviews.map(({ id, author, content }) => {
                         return (
                             <li key={id}>
-                                <p>{author}</p>
+                                <Accent>{author}</Accent>
                                 <p>{content}</p>
                             </li>
                         )
                     })}
-                </ul>}
+                </List>}
             
-            {error && <p>{error}</p>}
+            {error && <ErrorMessage>{error}</ErrorMessage>}
         </>
     );
 };

@@ -3,8 +3,8 @@ import { SharedLayout } from "components/SharedLayout/SharedLayout";
 import { Home } from "pages/Home/Home";
 import { MovieDetails } from "pages/MovieDetails/MovieDetails";
 import { Cast } from "components/Cast/Cast";
-import { Reviews } from "components/Movie/Reviews";
-import { Movies } from "pages/Movies";
+import { Reviews } from "components/Reviews/Reviews";
+import { Movies } from "pages/Movies/Movies";
 
 export const App = () => {
   return (
